@@ -4,7 +4,7 @@ from peewee import *
 from playhouse.sqlite_ext import *
 
 db = SqliteExtDatabase(None)
-comments = SqliteDatabase(COMMENTS);
+comments = SqliteDatabase(None)
 
 class BaseModel(Model):
   class Meta:

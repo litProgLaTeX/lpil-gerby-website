@@ -144,7 +144,7 @@ def importFootnotes(files):
     with open(os.path.join(gerby.configuration.PATH, filename)) as f:
       value = f.read()
 
-    label = filename.split(".")[0]
+    label = filename.split(".")[0].replace(os.sep, '-')
     Footnote.create(label=label, html=value)
 
 
@@ -251,7 +251,7 @@ def nameTags(tags):
   context = pickle.load(open(os.path.join(gerby.configuration.PAUX), "rb"))
 
   labels = {item: key for key, item in tags.items()}
-  for key, item in context["Gerby"].items():
+  for key, item in context["LPiLGerby"].items():
     if "title" in item and key in labels:
       names.append({"tag": labels[key], "name": item["title"]})
 

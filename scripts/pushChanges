@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# This bash script pushes this live repo to the various tools the use it.
+# It is used during development stage to ensure recent un-commited changes
+# appear in the related tools.
+
+pushChanges() {
+	# objective: $1/.venv/lib/python3.12/site-packages/lpilGerbyConfig
+	thePath=$1/.venv/lib/python3.12/site-packages
+	rm -rf $thePath/gerby
+	cp -R gerby $thePath
+}
+
+
+pushChanges ../gerby-runner

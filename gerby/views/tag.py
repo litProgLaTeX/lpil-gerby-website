@@ -170,7 +170,7 @@ def show_tag(tag):
     html = tag.html + "".join([proof.html for proof in tag.proofs.order_by(Proof.number)])
 
   # handle footnotes: relabeling the labels to actual numbers
-  pattern = re.compile("class=\"footnotemark\" href=\"#(a[0-9]+)\"")
+  pattern = re.compile("class=\"footnotemark\" href=\"#(.*-a[0-9]+)\"")
   labels = pattern.findall(html)
   for number, label in enumerate(labels):
     old = re.search(r"id=\"" + label + "-mark\"><sup>([0-9]+)</sup>", html).group(1)
